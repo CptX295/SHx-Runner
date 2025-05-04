@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHx Runner</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#222222">
+  <style>
+    html, body { margin: 0; padding: 0; overflow: hidden; font-family: sans-serif; }
+    canvas { display: block; background: linear-gradient(to top, #222, #444); }
+    #startMenu {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85); color: white;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2;
+    }
+    #startButton {
+      font-size: 24px; padding: 10px 20px; margin: 10px;
+      cursor: pointer; background: #0af; border: none; border-radius: 8px; color: white;
+    }
+  </style>
+</head>
+<body>
+<div id="startMenu">
+  <h1>Willkommen bei SHx Runner</h1>
+  <p>Sammle SHx-Coins, weiche Hindernissen aus!</p>
+  <button id="startButton">Spiel starten</button>
+</div>
+<canvas id="gameCanvas"></canvas>
+<audio id="coinSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_34c88e81a3.mp3?filename=coin-pick-up-199131.mp3"></audio>
+<audio id="gameOverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_66417737c6.mp3?filename=game-over-arcade-6435.mp3"></audio>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+<script src="game.js"></script>
+</body>
+</html>
